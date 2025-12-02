@@ -1,7 +1,8 @@
-/* CSS BY YOUR NAME */
+/* CSS BY Michael */
 
 /* IMPORTED FONTS*/
-/* IMPORT "INTER" FROM GOOGLE FONTS"
+/* IMPORT "INTER" FROM GOOGLE FONTS"*/
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 
 /* CSS RESET */
 /* http://meyerweb.com/eric/tools/css/reset/
@@ -63,8 +64,291 @@ table {
 }
 
 /* GLOBAL STYLES (MOBILE FIRST (SMALL) */
-
 /* MIN-WIDTH OF THE PAGE SHOULD NOT GO BELOW 400PX */
+body {
+    min-width: 400px;
+    background-color: var(--white);
+    font-family: var(--font);
+    margin: 0 auto;
+}
+h1 {
+    color: var(--blue);
+    font-size: 1.75rem;
+    font-weight: 800;
+    padding: 0 0 0 2vw;
+}
+h2 {
+    color: var(--white);
+    font-size: 1.75rem;
+    font-weight: 700;
+    padding: 5vw 3vw 3vw 3vw;
+    animation-name: descend-in;
+    animation-timing-function: linear;
+    animation-duration: 1s;
+    animation-iteration-count: 1;
+    animation-direction: normal;
+}
+section:nth-of-type(2) h2 {
+    color: var(--black);
+}
+section:nth-of-type(3) h2 {
+    color: var(--black);
+}
+h3 {
+    color: var(--white);
+    font-weight: 500;
+    font-size: 1.30rem;
+    padding: 3vw 1vw 3vw 3vw;
+    line-height: 1.25;
+    animation-name: descend-in;
+    animation-timing-function: linear;
+    animation-duration: 1s;
+    animation-iteration-count: 1;
+    animation-direction: normal;
+}
+.big-h3 {
+    font-size: 1.75rem;
+    font-weight: 600;
+}
+p {
+    color: var(--white);
+    font-weight: 400;
+    line-height: 1.5;
+}
+.black-p {
+    color: var(--black);
+    font-weight: 500;
+    line-height: 1.5;
+}
+
+/* HEADER */
+header {
+    background: var(--black);
+    padding-top: 5vw;
+    padding-bottom: 5vw;
+    box-shadow: 0 8px 10px var(--blue);
+    position: relative;
+}
+
+/* NAV MENU */
+header > div {
+    display: grid;
+    grid-template-columns: auto auto 1fr auto;
+    align-items: center;
+}
+nav{
+    text-align: right;
+}
+nav h2 {
+    visibility: hidden;
+    height: 1px;
+}
+nav ul {
+    width: 100%;
+    margin:0;
+    padding:0;
+    list-style:none;
+    overflow:hidden;
+    text-align: center;
+    max-height: 0;
+}
+nav li a {
+    display: block;
+    font-family: sans-serif;
+    font-size: 1.5rem;
+    padding: 1rem;
+    text-transform: uppercase;
+    font-weight: bold;
+    text-decoration: none;
+    color: var(--blue);
+    transition: background-color .3s ease-in;
+    cursor: default;
+}
+nav a:hover, nav input:hover {
+      background-color: var(--blue);
+      color: var(--black);
+}
+nav label {
+      cursor: default;
+      display: inline-block;
+      padding: 1.5rem;
+      user-select: none;
+}
+/* BUILDS THE MIDDLE LINE OF THE HAMBURGER */
+nav label span {
+    background-color: white;
+    display: block;
+    height: .25rem;
+    position: relative;
+    transition: background-color .3s ease-out;
+    width: 2rem;
+}
+/* BUILDS THE TOP AND BOTTOM LINES OF THE HAMBURGER*/
+nav label span:before, nav label span:after {
+    background: white;
+    content: '';
+    display: block;
+    height: 100%;
+    position: absolute;
+    transition: all .2s ease-out;
+    width: 100%;
+}
+nav label span:before {
+    top: .75rem;
+}
+nav label span:after {
+    top: -.75rem;
+}
+nav input {
+  display:none;
+}
+/* ADDS HEIGHT THE NAV WHEN IT'S DROPPED DOWN */
+input:checked ~ ul {
+    max-height: 500px;
+}
+/* MAKES THE MIDDLE LINE OF THE HAMBURGER DISAPPEAR */
+input:checked ~ label span {
+    background: transparent;
+}
+/* ROTATES THE TOP LINE OF THE HAMBURGER INTO ONE SIDE OF THE X */
+input:checked ~ label span:before {
+    transform: rotate(-45deg);
+}
+/* ROTATES THE BOTTOM LINE OF THE HAMBURGER INTO ONE SIDE OF THE X */
+input:checked ~ label span:after {
+    transform: rotate(45deg);
+}
+/* LOCATION OF THE HAMBURGER */
+input:checked ~ label:not(.steps) span:before, input:checked ~ label:not(.steps) span:after {
+    top: 0;
+}
+
+/* CLASS SELECTORS */
+.black-background {
+    background-color: var(--black);
+}
+.blue-box {
+    background-color: var(--blue);
+    border-radius: 8px;
+    padding: 2.5vw;
+    margin: 3vw 0vw;
+    transition: transform .75s ease;
+}
+.blue-box:hover {
+    transform: translate(0, -8px);
+    cursor: default;
+ }
+.results-section {
+    background-color: #007BFF;
+    padding-bottom: 15px;
+}
+
+/* ID SELECTORS */
+#help-button, button[type=submit] {
+    color: var(--white);
+    text-decoration: none;
+    background-color: var(--blue);
+    font-weight: 600;
+    border-radius: 8px;
+    display: inline-block;
+    text-align: center;
+    font-size: 1.25rem;
+    padding: 20px;
+    margin: 15px auto 0 auto;
+    animation-name: descend-in;
+    animation-timing-function: linear;
+    animation-duration: 1s;
+    animation-iteration-count: 1;
+    animation-direction: normal;
+    transition: background-color .5s, transform .5s;
+}
+#help-button:hover, button[type=submit]:hover {
+    transform: scale(1.05, 1.05);
+    background-color: var(--red);  
+    cursor: default;
+ }
+#innovation {
+    margin: 3vw;
+    animation-name: descend-in;
+    animation-timing-function: linear;
+    animation-duration: 1s;
+    animation-iteration-count: 1;
+    animation-direction: normal;
+}
+#blur {
+    padding:10px 10px 0 10px;
+    backdrop-filter: blur(10px);
+}
+
+/* TABLE */
+table {
+    background-color: var(--black);
+    margin: 15px auto;
+    font-size: 1rem;
+    color: var(--white);
+}
+th{ 
+    font-weight: 600;
+    text-align: center;
+    padding: 20px 25px;
+    border: 1px solid var(--charcoal);
+    text-transform: capitalize;
+    
+}
+td {
+    padding: 20px 25px;
+    border: 1px solid var(--charcoal);
+    text-align: center;
+}
+tr:nth-child(even) {
+    background-color: var(--charcoal);
+}
+
+/* FORM */
+#contact form {
+    display: flex;
+	justify-content: center;
+	flex-direction: column;
+    color: var(--white);
+    padding: 2rem 0;
+}
+#contact input[type=text], input[type=email], textarea {
+    padding: 15px;
+	margin: 0 0 24px 0;
+	border: 2px solid var(--blue);
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+}
+#contact input[type=text]:focus, input[type=email]:focus, textarea:focus {
+    border: 2px solid var(--red);
+    outline: none;
+}
+button[type=submit] {
+	width: 100%;
+    padding: 10px;
+    animation-name: none;
+}
+#contact label {
+	font-weight: 400;
+    margin-bottom: 5px;
+    display: inline-block;
+}
+
+/* FOOTER */
+footer {
+    text-align: center;
+    padding-bottom: 2rem;
+   
+}
+footer a {
+    color: var(--blue);
+}
+footer address, #phone {
+    color: var(--white);
+    text-decoration: none;
+    line-height: 1.5;
+}
 
 /* ADD A DIV WITH THE CLASS OF CONTAINER TO EVERY CONTENT CONTAINER THIS IS ALLOW THE BASE ELEMENTS TO BE 100% WIDTH, BUT CONSTRAIN THE ACTUAL CONTENT TO 90% */
 .container {
@@ -73,8 +357,9 @@ table {
     margin: 0 auto;
 }
 
-/* ADD TO "INNOVATION & INVESTMENT SECTION (Photo by Kevin Matos on Unsplash) */
- {
+
+/* ADD TO "INNOVATION & INVESTMENT SECTION (Photo by Kevin Matos on Unsplash) */ 
+.hero-image {
     background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url('images/vanguard-hero.jpg') no-repeat center center/cover;
     height: 80vh;
     display: grid;
@@ -85,15 +370,36 @@ table {
 }
 
 /* ADD FLOATING SVG LOGO BEFORE THE H1 */
- {
+ #logo {
     content: "";
-
     left:-.5rem;
     width: 3.75rem;
     height: 3.75rem;
     background: url('images/vanguard-logo.svg') no-repeat center/contain;
-
+    animation-name: logo-bounce;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
 }
+
+/* ANIMATION */
+@keyframes logo-bounce {
+    from {
+        transform: translate(0, 0);
+    }
+    to {
+        transform: translate(0, 10px);
+    }
+}
+@keyframes descend-in {
+    from {
+        transform: translate(0, -15px);
+    }
+    to {
+        transform: translate(0, 0);
+    }
+}
+    
 /* THIS ONE IS DONE FOR YOU */
 #bar-chart {
     display: grid;
@@ -104,18 +410,20 @@ table {
     height: 300px;
     width: 100%;
     max-width: 800px;
-    padding: 1rem;
+    padding: 1rem 0;
     position: relative;
 }
+
 /* ADD ON TRANSITION ON HEIGHT */
 .bar {
     width: 50px;
     background: var(--charcoal);
     border-radius: 10px;
     position: relative;
-    transition: ;
+    transition: height 1s ease; 
     height: 0;
 }
+
 /* THIS ONE IS DONE FOR YOU */
 .bar::after {
     content: attr(data-year);
@@ -135,27 +443,135 @@ table {
         height: var(--height);
     }
 }
+
 /* ADD ANIMATION ON stepUp for 1s ease-in-out forwards */
+
 .bar {
     animation: stepUp 1s ease-in-out forwards;
 }
 
-
 /* MEDIA QUERIES (MEDIUM) */ 
+@media screen and (min-width: 800px) {
 
-    #results {
-        grid-template-columns: 1fr 1fr;
+    /* HEADER */
+    header {
+        padding-top: 3vw;
     }
-    .results-container {
+
+    /* NAV MENU */
+    header > div {
+        align-items: normal;
+    }
+    nav label, nav input {
+        display: none;
+    }
+    nav h2 {
+        position: absolute;
+    }    
+    nav ul {
+        max-height: none;
+        display: flex; 
+        justify-content: flex-end;
+        margin-left: 1rem;
+        margin-top: -1.5vw;
+    }
+    nav li {
+        display: inline-block;
+    }
+
+    /* INNOVATION SECTION */
+    #innovation {
+        padding-top: 0;
+        padding-bottom: .75vw;
+        margin-top: 1.5vw;
+    }
+    #blur {
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+
+    /* OFFER SECTION */
+    #offer-grid  {
+        display: grid;
+        grid-template-columns: auto auto;
+        grid-template-rows: auto auto auto;
+        gap: 1rem;
+        margin-top: 1vw;
+    }
+    .blue-box {
+        padding: 2vw;
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+    .white-background {
+        margin-bottom: 4rem;
+        background-color: var(--white);
+    }
+    h3 {
+        font-size: 1.5rem;
+        padding-left: 2.5vw;
+        padding-right: 2.5vw;
+    }
+
+    /* RESULTS SECTION */
+    #results {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto auto;
+        grid-template-areas: 
+        "proven proven"
+        "results-table chart";
+        gap: 2rem;
+    }
+    #proven-results {
+        grid-area: proven;
+    }
+    .results-section {
         flex-direction: row;
         justify-content: space-between;
+        padding-bottom: 5px;
     }
     .results-table {
-        width: 50%;
-    }
-    .bar-chart {
-        width: 50%;
+        grid-area: results-table;
     }
 
+    .bar-chart {
+        grid-area: chart;
+        
+    }
+}
 
 /* MEDIA QUERIES (LARGE) */
+@media screen and (min-width: 1024px) {
+    /* OFFER SECTION */
+    #offer-grid  {
+        display: grid;
+        grid-template-columns: auto auto auto;
+        grid-template-rows: auto auto;
+        gap: 1rem;
+    }
+    .blue-box {
+        padding: 1vw 1.5vw 1.5vw 1.5vw;
+    }
+    h3 {
+        font-size: 1.4rem;
+        padding-left: 1.25vw;
+        padding-right: 1.25vw;
+        padding-bottom: 2vw;
+    }
+
+    /* RESULTS SECTION */
+    #results {
+        row-gap: 0;
+    }
+
+    /* FORM */ 
+    #contact form {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        column-gap: 2rem;
+    }
+    button[type=submit] {
+        align-self: start;
+    }
+}
